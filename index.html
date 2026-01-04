@@ -1,144 +1,202 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>LỄ DẠM NGÕ - Phương Trinh & Minh Nhật</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<style type="text/tailwindcss">
-@layer utilities {
-.ppt-slide {
-@apply relative w-[1280px] min-h-[720px] mx-auto box-border
-}
-}
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LỄ DẠM NGÕ - Phương Trinh & Minh Nhật</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .ppt-slide {
+                @apply relative w-[1280px] min-h-[720px] mx-auto box-border bg-[#FBF9F5] shadow-2xl;
+            }
+            .border-frame {
+                @apply absolute inset-8 border-[1px] border-[#C89F62] pointer-events-none z-20;
+            }
+            .border-inner {
+                @apply absolute inset-2 border-[1px] border-[#C2185B] opacity-30;
+            }
+            .corner-ornament {
+                @apply absolute w-12 h-12 border-[#C89F62];
+            }
+        }
 </style>
-<style>body {
-    font-family: "Lato", sans-serif;
-    background: #f5f5f5
-    }
-.title-font {
-    font-family: "Playfair Display", serif
-    }
-.body-font {
-    font-family: "Cormorant Garamond", serif
-    }
-.decorative-symbol {
-    color: #C2185B;
-    font-size: 160px;
-    line-height: 1;
-    letter-spacing: 8px
-    }
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-        } to {
-        opacity: 1;
-        transform: translateY(0);
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            background: #FBF9F5
         }
-    }
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-        } to {
-        opacity: 0.95;
-        transform: translateX(0);
+
+        .title-font {
+            font-family: "Playfair Display", serif
         }
-    }
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-        } to {
-        opacity: 0.95;
-        transform: translateX(0);
+
+        .body-font {
+            font-family: "Cormorant Garamond", serif
         }
-    }
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-        } to {
-        opacity: 1;
-        transform: scale(1);
+
+        .decorative-symbol {
+            color: #C2185B;
+            font-size: 160px;
+            line-height: 1;
+            letter-spacing: 8px
         }
-    }
-.animate-fade-in {
-    animation: fadeIn 1.2s ease-out forwards
-    }
-.animate-slide-left {
-    animation: slideInLeft 1.5s ease-out forwards
-    }
-.animate-slide-right {
-    animation: slideInRight 1.5s ease-out forwards
-    }
-.animate-scale {
-    animation: scaleIn 1.3s ease-out forwards
-    }
-.delay-200 {
-    animation-delay: 0.2s
-    }
-.delay-400 {
-    animation-delay: 0.4s
-    }
-.delay-600 {
-    animation-delay: 0.6s
-    }
-.delay-800 {
-    animation-delay: 0.8s
-    }</style>
-<style>.material-icons {
-    width: 1em
-    </style><style>.material-icons {
-    direction: rtl
-    }</style></head>
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            to {
+                opacity: 0.95;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            to {
+                opacity: 0.95;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.2s ease-out forwards
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 1.5s ease-out forwards
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 1.5s ease-out forwards
+        }
+
+        .animate-scale {
+            animation: scaleIn 1.3s ease-out forwards
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s
+        }
+
+        .delay-600 {
+            animation-delay: 0.6s
+        }
+
+        .delay-800 {
+            animation-delay: 0.8s
+        }
+    </style>
+    <style>
+        .material-icons {
+            width: 1em
+    </style>
+    <style>
+        .material-icons {
+            direction: rtl
+        }
+    </style>
+</head>
+
 <body>
-<div class="ppt-slide flex flex-col justify-center items-center h-[720px] bg-white relative overflow-hidden">
-<div class="absolute left-[-30px] top-1/2 -translate-y-1/2 w-[480px] h-[580px] opacity-95 animate-slide-left">
-<img src="https://sfile.chatglm.cn/images-ppt/463d9f6285a4.jpg" alt="lotus flower decoration" class="w-full h-full object-contain"/>
-</div>
-<div class="absolute right-[-30px] top-1/2 -translate-y-1/2 w-[480px] h-[580px] opacity-95 animate-slide-right">
-<img src="https://sfile.chatglm.cn/images-ppt/463d9f6285a4.jpg" alt="lotus flower decoration" class="w-full h-full object-contain transform scale-x-[-1]"/>
-</div>
+    <div class="mt-8 ppt-slide flex flex-col justify-center items-center h-[720px] bg-white relative overflow-hidden">
+        <!-- Decorative Frame -->
+        <div class="border-frame">
+            <div class="border-inner"></div>
+            <!-- Corners -->
+            <div class="corner-ornament border-t-2 border-l-2 top-0 left-0"></div>
+            <div class="corner-ornament border-t-2 border-r-2 top-0 right-0"></div>
+            <div class="corner-ornament border-b-2 border-l-2 bottom-0 left-0"></div>
+            <div class="corner-ornament border-b-2 border-r-2 bottom-0 right-0"></div>
+        </div>
+        <!-- Left Decoration -->
+        <div class="absolute -left-16 -bottom-8 w-[600px] h-[700px] opacity-90 animate-slide-left pointer-events-none">
+            <img src="assets/images/lotus_flower.png" alt="lotus flower decoration left"
+                class="w-full h-full object-contain mix-blend-multiply rotate-[5deg]" />
+        </div>
+        <!-- Right Decoration -->
+        <div class="absolute -right-16 -bottom-8 w-[600px] h-[700px] opacity-90 animate-slide-right pointer-events-none">
+            <img src="assets/images/lotus_flower.png" alt="lotus flower decoration right"
+                class="w-full h-full object-contain transform scale-x-[-1] -rotate-[5deg] mix-blend-multiply" />
+        </div>
 
-<div class="relative z-10 text-center px-20 flex flex-col items-center justify-center">
-<div class="mb-8 opacity-0 animate-fade-in">
-<h1 class="title-font text-5xl font-semibold tracking-wider" style="color: #C2185B">
-LỄ DẠM NGÕ
-</h1>
-</div>
+        <div class="relative z-10 text-center px-20 flex flex-col items-center justify-center">
+            <div class="mb-8 opacity-0 animate-fade-in">
+                <h1 class="title-font text-5xl font-semibold tracking-wider" style="color: #C2185B">
+                    LỄ DẠM NGÕ
+                </h1>
+            </div>
 
-<div class="decorative-symbol mb-8 opacity-0 animate-scale delay-200">
-囍
-</div>
+            <div class="decorative-symbol mb-8 opacity-0 animate-scale delay-200">
+                囍
+            </div>
 
-<div class="mb-10 opacity-0 animate-fade-in delay-400">
-<h2 class="body-font text-6xl font-medium tracking-wide" style="color: #C2185B">
-Phương Trinh <span style="color: #C89F62">&</span> Minh Nhật
-</h2>
-</div>
+            <div class="mb-10 opacity-0 animate-fade-in delay-400">
+                <h2 class="body-font text-6xl font-medium tracking-wide" style="color: #C2185B">
+                    Phương Trinh <span style="color: #C89F62">&</span> Minh Nhật
+                </h2>
+            </div>
 
-<div class="flex items-center gap-8 mb-12 opacity-0 animate-fade-in delay-600">
-<div class="w-24 h-0.5" style="background-color: #C89F62"></div>
-<div class="body-font text-3xl font-light tracking-wider" style="color: #C2185B">
-JANUARY 2025 · BẾN TRE
-</div>
-<div class="w-24 h-0.5" style="background-color: #C89F62"></div>
-</div>
-</div>
+            <div class="flex items-center gap-8 mb-12 opacity-0 animate-fade-in delay-600">
+                <div class="w-24 h-0.5" style="background-color: #C89F62"></div>
+                <div class="body-font text-3xl font-light tracking-wider" style="color: #C2185B">
+                    JANUARY 2025 · BẾN TRE
+                </div>
+                <div class="w-24 h-0.5" style="background-color: #C89F62"></div>
+            </div>
+        </div>
 
-<div class="absolute bottom-12 left-16 flex items-center gap-3 opacity-0 animate-fade-in delay-800">
-<div class="w-2 h-2 rounded-full" style="background-color: #C89F62"></div>
-<p class="body-font text-lg font-medium tracking-wider" style="color: #C2185B">
-Đồng Nai - Bến Tre
-</p>
-</div>
+        <div class="absolute bottom-16 flex items-center gap-3 opacity-0 animate-fade-in delay-800">
+            <div class="w-1.5 h-1.5 rounded-full" style="background-color: #C89F62"></div>
+            <p class="body-font text-lg font-medium tracking-[0.2em] uppercase" style="color: #C2185B">
+               Bến Tre <span class="mx-2 text-[#C89F62]">&bull;</span> Đồng Nai
+            </p>
+            <div class="w-1.5 h-1.5 rounded-full" style="background-color: #C89F62"></div>
+        </div>
 
-<div class="absolute bottom-0 left-0 w-full h-2" style="background: linear-gradient(90deg, transparent 0%, #C89F62 50%, transparent 100%);
+        <div class="absolute bottom-0 left-0 w-full h-2" style="background: linear-gradient(90deg, transparent 0%, #C89F62 50%, transparent 100%);
 opacity: 0.3"></div>
-</div>
+    </div>
 </body>
+
 </html>
