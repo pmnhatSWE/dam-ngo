@@ -235,7 +235,7 @@
         </div>
 
         <!-- Heart Balloons Decoration (Bottom Left) -->
-        <div class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-2 sm:left-4 md:left-8 w-[100px] sm:w-[150px] md:w-[280px] lg:w-[350px] 2xl:w-[450px] animate-scale delay-800 pointer-events-none z-10">
+        <div class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-2 sm:left-4 md:left-8 w-[100px] sm:w-[150px] md:w-[220px] lg:w-[280px] 2xl:w-[380px] animate-scale delay-800 pointer-events-none z-10">
              <img src="assets/images/heart_balloons_pink.png" alt="heart balloons" class="w-full h-full object-contain" />
         </div>
 
@@ -317,20 +317,27 @@
         const bgMusic = document.getElementById('bgMusic');
         const ringIcon = document.getElementById('ringIcon');
         let isPlaying = false;
-        let hasTriedAutoplay = false;
+        let manualPause = false; // Tracks if user explicitly turned off music
+        let isAttemptingPlay = false;
+
+        // Ensure music loops (replays when finished)
+        bgMusic.loop = true;
 
         // Function to play music
         function playMusic() {
-            if (!isPlaying) {
-                bgMusic.play().then(() => {
-                    isPlaying = true;
-                    ringIcon.classList.remove('paused');
-                }).catch(err => {
-                    console.log('Play prevented:', err);
-                    isPlaying = false;
-                    ringIcon.classList.add('paused');
-                });
-            }
+            if (isPlaying || isAttemptingPlay) return;
+            
+            isAttemptingPlay = true;
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                isAttemptingPlay = false;
+                ringIcon.classList.remove('paused');
+            }).catch(err => {
+                console.log('Autoplay prevented/pending interaction');
+                isPlaying = false;
+                isAttemptingPlay = false;
+                ringIcon.classList.add('paused');
+            });
         }
 
         // Function to pause music
@@ -343,26 +350,30 @@
         // Try autoplay on load
         window.addEventListener('load', function() {
             playMusic();
-            hasTriedAutoplay = true;
         });
 
-        // If autoplay was blocked, play on first user interaction
-        ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-            document.addEventListener(event, function autoplayHandler() {
-                if (!isPlaying && hasTriedAutoplay) {
-                    playMusic();
-                }
-                // Remove listener after first interaction
-                document.removeEventListener(event, autoplayHandler);
-            }, { once: true });
+        // Interaction handler (Hover/Move/Scroll/Click)
+        function handleInteraction() {
+            // Only try to play if not playing AND user hasn't manually paused
+            if (!isPlaying && !manualPause) {
+                playMusic();
+            }
+        }
+
+        // Listen for user interactions/hover
+        // 'mousemove' covers "hovering" over the HTML
+        ['click', 'touchstart', 'mousemove', 'scroll', 'keydown'].forEach(event => {
+            document.addEventListener(event, handleInteraction, { passive: true });
         });
 
         // Click on ring to toggle pause/play
         musicToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             if (isPlaying) {
+                manualPause = true; // User explicitly paused - disable auto-hover
                 pauseMusic();
             } else {
+                manualPause = false; // User explicitly played - re-enable auto-hover for future errors/pauses if any
                 playMusic();
             }
         });
