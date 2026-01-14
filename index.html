@@ -24,7 +24,8 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .ppt-slide {
-                @apply relative w-full h-screen mx-auto box-border bg-[#FEECEF] overflow-hidden;
+                @apply relative w-full h-screen mx-auto box-border overflow-hidden;
+                background: radial-gradient(circle at center, #fff0f5 0%, #feecef 100%);
             }
             .border-frame {
                 @apply absolute inset-4 md:inset-8 2xl:inset-12 border-[1px] border-[#C89F62] pointer-events-none z-20;
@@ -40,7 +41,8 @@
     <style>
         body {
             font-family: "Lato", sans-serif;
-            background: #FEECEF
+            font-family: "Lato", sans-serif;
+            background: #FEECEF;
         }
 
         .cursive-font {
@@ -159,6 +161,52 @@
             animation: spinSlow 10s linear infinite;
         }
 
+        .animate-spin-slow.paused {
+            animation-play-state: paused;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.85;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        .music-btn:hover .ring-icon {
+            animation: pulse-ring 1s ease-in-out infinite;
+        }
+
+        /* Falling Petals Animation */
+        .petal {
+            position: absolute;
+            background: #ffc1e3;
+            border-radius: 150% 0 150% 0;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 15; /* Behind text (z-20) but above watermark */
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px) rotate(0deg) translateX(0px);
+            }
+            10% {
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg) translateX(50px);
+            }
+        }
+
         /* Responsive adjustments for very small screens */
         @media (max-width: 375px) {
             .cursive-font {
@@ -182,7 +230,7 @@
     <div class="ppt-slide flex flex-col items-center justify-center relative">
         
         <!-- Bunting Decoration (Top Right) -->
-        <div class="absolute -top-16 sm:-top-24 md:-top-32 -right-2 sm:-right-4 w-[150px] sm:w-[220px] md:w-[380px] lg:w-[450px] 2xl:w-[600px] animate-fade-in pointer-events-none z-10">
+        <div class="absolute -top-8 sm:-top-12 md:-top-16 -right-2 sm:-right-4 w-[100px] sm:w-[150px] md:w-[220px] lg:w-[280px] 2xl:w-[380px] animate-fade-in pointer-events-none z-10">
              <img src="assets/images/bunting_flags_pink.png" alt="bunting flags" class="w-full h-full object-contain transform rotate-3" />
         </div>
 
@@ -193,10 +241,13 @@
 
         <!-- Center Watermark Symbol -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-             <div class="text-[300px] md:text-[500px] 2xl:text-[700px] font-bold text-[#E91E63] opacity-[0.07] leading-none select-none">
+             <div class="text-[300px] md:text-[500px] 2xl:text-[700px] font-bold text-[#E91E63] opacity-[0.05] leading-none select-none">
                 囍
              </div>
         </div>
+        
+        <!-- Falling Petals Container -->
+        <div id="petals-container" class="absolute inset-0 pointer-events-none overflow-hidden z-10"></div>
 
         <!-- Main Content -->
         <div class="relative z-20 w-full h-full flex flex-col">
@@ -219,14 +270,19 @@
                         </h2>
                     </div>
 
-                    <!-- Wedding Rings - Center -->
+                    <!-- Wedding Rings - Music Toggle Button -->
                     <div class="absolute inset-0 flex items-center justify-center z-20">
-                         <div class="animate-scale delay-400">
-                             <div class="w-20 sm:w-24 md:w-36 lg:w-44 2xl:w-56 aspect-square animate-spin-slow">
-                                <img src="assets/images/wedding_rings_sketch.png" alt="wedding rings" class="w-full h-full object-contain opacity-85" />
+                         <button id="musicToggle" class="music-btn animate-scale delay-400 cursor-pointer pointer-events-auto focus:outline-none group" title="Bấm để bật/tắt nhạc">
+                             <div id="ringIcon" class="ring-icon w-20 sm:w-24 md:w-36 lg:w-44 2xl:w-56 aspect-square animate-spin-slow transition-all duration-300">
+                                <img src="assets/images/wedding_rings_sketch.png" alt="wedding rings - click to pause music" class="w-full h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
                             </div>
-                        </div>
+                        </button>
                     </div>
+                    
+                    <!-- Audio Element -->
+                    <audio id="bgMusic" loop preload="auto" autoplay>
+                        <source src="assets/music.mp3" type="audio/mpeg">
+                    </audio>
 
                     <!-- Groom Name - Lower Right -->
                     <div class="absolute bottom-[30%] sm:bottom-[28%] md:bottom-[26%] right-[5%] sm:right-[8%] md:right-[10%] w-auto text-right animate-slide-right delay-600 z-30">
@@ -254,6 +310,95 @@
 
         </div>
     </div>
+
+    <script>
+        // Music Control
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        const ringIcon = document.getElementById('ringIcon');
+        let isPlaying = false;
+        let hasTriedAutoplay = false;
+
+        // Function to play music
+        function playMusic() {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    ringIcon.classList.remove('paused');
+                }).catch(err => {
+                    console.log('Play prevented:', err);
+                    isPlaying = false;
+                    ringIcon.classList.add('paused');
+                });
+            }
+        }
+
+        // Function to pause music
+        function pauseMusic() {
+            bgMusic.pause();
+            isPlaying = false;
+            ringIcon.classList.add('paused');
+        }
+
+        // Try autoplay on load
+        window.addEventListener('load', function() {
+            playMusic();
+            hasTriedAutoplay = true;
+        });
+
+        // If autoplay was blocked, play on first user interaction
+        ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+            document.addEventListener(event, function autoplayHandler() {
+                if (!isPlaying && hasTriedAutoplay) {
+                    playMusic();
+                }
+                // Remove listener after first interaction
+                document.removeEventListener(event, autoplayHandler);
+            }, { once: true });
+        });
+
+        // Click on ring to toggle pause/play
+        musicToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (isPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+
+        // Falling Petals Logic
+        function createPetal() {
+            const container = document.getElementById('petals-container');
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            // Randomize properties
+            const left = Math.random() * 100; // 0-100% width
+            const animDuration = 6 + Math.random() * 6; // 6-12s fall time
+            const size = 10 + Math.random() * 15; // 10-25px size
+            const delay = Math.random() * 5; // 0-5s delay
+            
+            petal.style.left = `${left}%`;
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            petal.style.top = `-20px`;
+            petal.style.animation = `fall ${animDuration}s linear ${delay}s infinite`;
+            
+            // Randomize color slightly
+            const colors = ['#F8BBD0', '#F48FB1', '#FFCDD2', '#FCE4EC'];
+            petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            container.appendChild(petal);
+        }
+
+        // Create initial batch of petals
+        window.addEventListener('load', () => {
+            for(let i = 0; i < 20; i++) {
+                createPetal();
+            }
+        });
+    </script>
 </body>
 
 </html>
