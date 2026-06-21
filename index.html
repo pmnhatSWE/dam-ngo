@@ -4,45 +4,51 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>LỄ DẠM NGÕ - Phương Trinh & Minh Nhật</title>
-    <meta name="description" content="Thiệp mời Lễ Dạm Ngõ của Phương Trinh & Minh Nhật - Tháng 1/2025 tại Bến Tre." />
-    
+    <title>LỄ ĐÍNH HÔN - Phương Trinh & Minh Nhật</title>
+    <meta name="description" content="Thiệp mời Lễ Đính Hôn của Phương Trinh & Minh Nhật - Tháng 8/2026 tại Bến Tre." />
+
     <!-- Open Graph / Facebook / Zalo -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="LỄ DẠM NGÕ - Phương Trinh & Minh Nhật" />
-    <meta property="og:description" content="Trân trọng kính mời quý thân bằng quyến thuộc đến dự lễ dạm ngõ của chúng mình." />
+    <meta property="og:title" content="LỄ ĐÍNH HÔN - Phương Trinh & Minh Nhật" />
+    <meta property="og:description"
+        content="Trân trọng kính mời quý thân bằng quyến thuộc đến dự lễ đính hôn của chúng mình." />
     <meta property="og:image" content="assets/images/lotus_flower.png" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="LỄ DẠM NGÕ - Phương Trinh & Minh Nhật" />
-    <meta property="twitter:description" content="Trân trọng kính mời quý thân bằng quyến thuộc đến dự lễ dạm ngõ của chúng mình." />
+    <meta property="twitter:title" content="LỄ ĐÍNH HÔN - Phương Trinh & Minh Nhật" />
+    <meta property="twitter:description"
+        content="Trân trọng kính mời quý thân bằng quyến thuộc đến dự lễ đính hôn của chúng mình." />
     <meta property="twitter:image" content="assets/images/lotus_flower.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <style type="text/tailwindcss">
         @layer utilities {
             .ppt-slide {
                 @apply relative w-full h-screen mx-auto box-border overflow-hidden;
-                background: radial-gradient(circle at center, #fff0f5 0%, #feecef 100%);
+                background: radial-gradient(circle at center, #ffffff 0%, #fdf8f9 65%, #faeef1 100%);
             }
             .border-frame {
-                @apply absolute inset-4 md:inset-8 2xl:inset-12 border-[1px] border-[#C89F62] pointer-events-none z-20;
+                @apply absolute inset-4 md:inset-8 2xl:inset-12 pointer-events-none z-20;
             }
             .border-inner {
-                @apply absolute inset-1 md:inset-2 border-[1px] border-[#C2185B] opacity-30;
+                @apply absolute inset-1 md:inset-2 border-[1px] border-[#B76E79] opacity-35 z-20;
             }
             .corner-ornament {
-                @apply absolute w-8 h-8 md:w-12 md:h-12 border-[#C89F62];
+                @apply absolute w-8 h-8 md:w-12 md:h-12 border-[#B76E79];
+            }
+            .decoration-blush-tint {
+                filter: saturate(0.75) brightness(1.05) contrast(0.95);
             }
         }
     </style>
     <style>
         body {
             font-family: "Lato", sans-serif;
-            font-family: "Lato", sans-serif;
-            background: #FEECEF;
+            background: #faeef1;
         }
 
         .cursive-font {
@@ -58,7 +64,7 @@
         }
 
         .decorative-symbol {
-            color: #C2185B;
+            color: #B76E79;
             font-size: 160px;
             line-height: 1;
             letter-spacing: 8px
@@ -77,6 +83,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -88,6 +95,7 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -99,6 +107,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -110,6 +119,7 @@
                 opacity: 0;
                 transform: scale(0.8);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -152,6 +162,7 @@
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
@@ -166,10 +177,13 @@
         }
 
         @keyframes pulse-ring {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 opacity: 0.85;
             }
+
             50% {
                 transform: scale(1.05);
                 opacity: 1;
@@ -183,11 +197,16 @@
         /* Falling Petals Animation */
         .petal {
             position: absolute;
-            background: #ffc1e3;
+            background: #ffffff;
             border-radius: 150% 0 150% 0;
-            opacity: 0.8;
+            opacity: 0.85;
             pointer-events: none;
-            z-index: 15; /* Behind text (z-20) but above watermark */
+            z-index: 15;
+            /* Behind text (z-20) but above watermark */
+            box-shadow: 0 2px 6px rgba(183, 110, 121, 0.12);
+            /* subtle blush-tinted shadow */
+            border: 0.5px solid rgba(183, 110, 121, 0.2);
+            /* light rose-gold border */
         }
 
         @keyframes fall {
@@ -195,12 +214,15 @@
                 opacity: 0;
                 transform: translateY(-10px) rotate(0deg) translateX(0px);
             }
+
             10% {
                 opacity: 0.8;
             }
+
             80% {
                 opacity: 0.8;
             }
+
             100% {
                 opacity: 0;
                 transform: translateY(100vh) rotate(360deg) translateX(50px);
@@ -228,84 +250,145 @@
 
 <body>
     <div class="ppt-slide flex flex-col items-center justify-center relative">
-        
-        <!-- Bunting Decoration (Top Right) -->
-        <div class="absolute -top-8 sm:-top-14 md:-top-20 -right-2 sm:-right-4 w-[100px] sm:w-[150px] md:w-[220px] lg:w-[280px] 2xl:w-[380px] animate-fade-in pointer-events-none z-10">
-             <img src="assets/images/bunting_flags_pink.png" alt="bunting flags" class="w-full h-full object-contain transform rotate-3" />
+        <!-- Elegant Border Frame -->
+        <div class="border-frame">
+            <!-- Outer Border Line (Layered on top of flowers, z-20) -->
+            <div class="absolute inset-0 border-[1px] border-[#B76E79] z-20"></div>
+            
+            <!-- Inner Border Line (Layered on top of flowers, z-20) -->
+            <div class="border-inner"></div>
+            
+            <!-- Corner Ornaments (Layered on top of flowers, z-20) -->
+            <div class="absolute top-0 left-0 w-4 h-4 md:w-6 md:h-6 border-t-2 border-l-2 border-[#B76E79] z-20"></div>
+            <div class="absolute top-0 right-0 w-4 h-4 md:w-6 md:h-6 border-t-2 border-r-2 border-[#B76E79] z-20"></div>
+            <div class="absolute bottom-0 left-0 w-4 h-4 md:w-6 md:h-6 border-b-2 border-l-2 border-[#B76E79] z-20"></div>
+            <div class="absolute bottom-0 right-0 w-4 h-4 md:w-6 md:h-6 border-b-2 border-r-2 border-[#B76E79] z-20"></div>
+
+            <!-- Watercolor Floral Corner Decorations (Layered behind borders, z-10) -->
+            <!-- Top Left Corner (Large - mirrored from Top Right for perfect size/density balance) -->
+            <div class="absolute -top-4 sm:-top-6 md:-top-8 2xl:-top-12 -left-4 sm:-left-6 md:-left-8 2xl:-left-12 w-24 sm:w-32 md:w-44 lg:w-52 aspect-square pointer-events-none z-10 animate-fade-in">
+                 <img src="assets/images/sakura_top_right.png" alt="floral corner" class="w-full h-full object-contain" style="transform: scaleX(-1);" />
+            </div>
+            
+            <!-- Top Right Corner (Large) -->
+            <div class="absolute -top-4 sm:-top-6 md:-top-8 2xl:-top-12 -right-4 sm:-right-6 md:-right-8 2xl:-right-12 w-24 sm:w-32 md:w-44 lg:w-52 aspect-square pointer-events-none z-10 animate-fade-in">
+                 <img src="assets/images/sakura_top_right.png" alt="floral corner" class="w-full h-full object-contain" />
+            </div>
+            
+            <!-- Bottom Left Corner (Small - mirrored from Bottom Right for perfect size/density balance) -->
+            <div class="absolute -bottom-4 sm:-bottom-6 md:-bottom-8 2xl:-bottom-12 -left-4 sm:-left-6 md:-left-8 2xl:-left-12 w-18 sm:w-24 md:w-34 lg:w-40 aspect-square pointer-events-none z-10 animate-fade-in delay-200">
+                 <img src="assets/images/sakura_bottom_right.png" alt="floral corner" class="w-full h-full object-contain" style="transform: scaleX(-1);" />
+            </div>
+            
+            <!-- Bottom Right Corner (Small) -->
+            <div class="absolute -bottom-4 sm:-bottom-6 md:-bottom-8 2xl:-bottom-12 -right-4 sm:-right-6 md:-right-8 2xl:-right-12 w-18 sm:w-24 md:w-34 lg:w-40 aspect-square pointer-events-none z-10 animate-fade-in delay-200">
+                 <img src="assets/images/sakura_bottom_right.png" alt="floral corner" class="w-full h-full object-contain" />
+            </div>
         </div>
 
-        <!-- Heart Balloons Decoration (Bottom Left) -->
-        <div class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-2 sm:left-4 md:left-8 w-[100px] sm:w-[150px] md:w-[220px] lg:w-[280px] 2xl:w-[380px] animate-scale delay-800 pointer-events-none z-10">
-             <img src="assets/images/heart_balloons_pink.png" alt="heart balloons" class="w-full h-full object-contain" />
-        </div>
-
-        <!-- Center Watermark Symbol -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-             <div class="text-[300px] md:text-[500px] 2xl:text-[700px] font-bold text-[#E91E63] opacity-[0.20] leading-none select-none">
-                囍
-             </div>
-        </div>
-        
         <!-- Falling Petals Container -->
         <div id="petals-container" class="absolute inset-0 pointer-events-none overflow-hidden z-10"></div>
 
         <!-- Main Content -->
-        <div class="relative z-20 w-full h-full flex flex-col">
-            
-            <!-- Header - Top Center -->
-            <div class="absolute top-[4%] w-full text-center animate-fade-in z-20">
-                 <h1 class="title-font text-4xl md:text-6xl 2xl:text-8xl font-medium tracking-wider text-[#880E4F]">
-                    Lễ Dạm Ngõ
-                </h1>
-            </div>
+        <div class="relative z-20 w-full h-full flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
 
-            <!-- Names Container - Diagonal Layout -->
-            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <div class="relative w-full h-full max-w-[1800px] mx-auto">
-                    
-                    <!-- Bride Name - Upper Left -->
-                    <div class="absolute top-[30%] sm:top-[28%] md:top-[26%] left-[5%] sm:left-[8%] md:left-[10%] w-auto text-left animate-slide-left delay-200 z-30">
-                        <h2 class="cursive-font text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] 2xl:text-[8.5rem] text-[#880E4F] leading-none whitespace-nowrap drop-shadow-sm">
-                            Phương Trinh
-                        </h2>
+            <!-- Audio Element -->
+            <audio id="bgMusic" loop preload="auto" autoplay>
+                <source src="assets/music.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- Card Flex Container -->
+            <div
+                class="w-full max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 lg:space-x-20 xl:space-x-28">
+
+                <!-- Left Column: Bride and Groom Photo (vkck.jpeg) -->
+                <div class="flex-shrink-0 animate-scale z-20">
+                    <div
+                        class="w-56 sm:w-64 md:w-80 lg:w-[340px] xl:w-[380px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] md:rounded-[40px] border-[3px] border-[#B76E79] p-1.5 md:p-2.5 shadow-xl bg-white bg-opacity-30 backdrop-blur-[2px] overflow-hidden">
+                        <div
+                            class="w-full h-full rounded-[18px] sm:rounded-[24px] md:rounded-[30px] overflow-hidden border border-[#B76E79] border-opacity-40">
+                            <img src="assets/images/vkck.jpeg" alt="Cô dâu & Chú rể"
+                                class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-110 cursor-pointer" />
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Wedding Rings - Music Toggle Button -->
-                    <div class="absolute inset-0 flex items-center justify-center z-20">
-                         <button id="musicToggle" class="music-btn animate-scale delay-400 cursor-pointer pointer-events-auto focus:outline-none group" title="Bấm để bật/tắt nhạc">
-                             <div id="ringIcon" class="ring-icon w-20 sm:w-24 md:w-36 lg:w-44 2xl:w-56 aspect-square animate-spin-slow transition-all duration-300">
-                                <img src="assets/images/wedding_rings_sketch.png" alt="wedding rings - click to pause music" class="w-full h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+                <!-- Right Column: Invitation Details -->
+                <div
+                    class="relative flex flex-col items-center text-center animate-fade-in delay-300 w-full md:w-auto z-20">
+
+                    <div class="relative z-10 flex flex-col items-center w-full">
+                        <!-- Ceremony title -->
+                        <h1
+                            class="title-font text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.25em] -mr-[0.25em] text-[#720D26] uppercase mb-4 md:mb-6">
+                            Lễ Đính Hôn
+                        </h1>
+
+                        <!-- Names -->
+                        <div class="relative flex flex-col items-center space-y-1 md:space-y-2 w-full mt-10 md:mt-16">
+                            <!-- Soft watermark background for the names -->
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0" style="transform: translateY(-20px);">
+                                <div
+                                    class="text-[180px] sm:text-[220px] md:text-[280px] lg:text-[340px] font-bold text-[#E91E63] opacity-[0.06] select-none leading-none">
+                                    囍
+                                </div>
                             </div>
-                        </button>
+
+                            <h2
+                                class="relative z-10 cursive-font text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.8rem] text-[#720D26] leading-none whitespace-nowrap drop-shadow-sm">
+                                Phương Trinh
+                            </h2>
+
+                            <!-- Wedding Rings (Music Toggle / Pointer events auto) -->
+                            <div class="relative z-10 my-1.5 pointer-events-auto">
+                                <button id="musicToggle" class="music-btn cursor-pointer focus:outline-none group"
+                                    title="Bấm để bật/tắt nhạc">
+                                    <div id="ringIcon"
+                                        class="ring-icon w-12 sm:w-16 md:w-20 aspect-square animate-spin-slow transition-all duration-300">
+                                        <img src="assets/images/wedding_rings_sketch.png" alt="wedding rings"
+                                            class="w-full h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+                                    </div>
+                                </button>
+                            </div>
+
+                            <h2
+                                class="relative z-10 cursive-font text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.8rem] text-[#720D26] leading-none whitespace-nowrap drop-shadow-sm">
+                                Minh Nhật
+                            </h2>
+                        </div>
+
+                        <!-- Date Details Block -->
+                        <div
+                            class="flex flex-col items-center justify-center font-serif text-[#8A6E73] mt-5 md:mt-7 w-full">
+                            <div class="w-32 md:w-40 border-t border-[#B76E79] opacity-40 my-1"></div>
+                            <div
+                                class="text-[10px] md:text-xs uppercase tracking-[0.25em] -mr-[0.25em] font-medium mb-0.5">
+                                Tháng 08</div>
+                            <div class="w-44 md:w-56 border-t border-[#B76E79] opacity-50 my-1"></div>
+
+                            <div
+                                class="flex items-center justify-center py-1 w-full max-w-[340px] md:max-w-[420px] mx-auto">
+                                <div
+                                    class="flex-1 uppercase tracking-widest text-[9px] md:text-xs font-medium text-right pr-3 md:pr-4 text-[#8A6E73]">
+                                    Thứ Hai</div>
+                                <div class="border-l border-[#B76E79] opacity-40 h-6 md:h-8"></div>
+                                <div
+                                    class="title-font text-2xl md:text-3xl font-semibold text-[#720D26] leading-none px-3 md:px-4 text-center" style="transform: translateY(-3px);">
+                                    10</div>
+                                <div class="border-l border-[#B76E79] opacity-40 h-6 md:h-8"></div>
+                                <div
+                                    class="flex-1 text-[9px] md:text-xs tracking-wider font-medium text-left pl-3 md:pl-4 text-[#8A6E73] whitespace-nowrap">
+                                    28/06 (Bính Ngọ)</div>
+                            </div>
+
+                            <div class="w-44 md:w-56 border-t border-[#B76E79] opacity-50 my-1"></div>
+                            <div class="text-[10px] md:text-xs tracking-[0.3em] -mr-[0.3em] font-semibold mt-0.5">2026
+                            </div>
+                            <div class="w-32 md:w-40 border-t border-[#B76E79] opacity-40 my-1"></div>
+                        </div>
                     </div>
-                    
-                    <!-- Audio Element -->
-                    <audio id="bgMusic" loop preload="auto" autoplay>
-                        <source src="assets/music.mp3" type="audio/mpeg">
-                    </audio>
-
-                    <!-- Groom Name - Lower Right -->
-                    <div class="absolute bottom-[30%] sm:bottom-[28%] md:bottom-[26%] right-[5%] sm:right-[8%] md:right-[10%] w-auto text-right animate-slide-right delay-600 z-30">
-                        <h2 class="cursive-font text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] 2xl:text-[8.5rem] text-[#880E4F] leading-none whitespace-nowrap drop-shadow-sm">
-                             Minh Nhật
-                        </h2>
-                    </div>
-
                 </div>
-            </div>
 
-            <!-- Footer Dates - Bottom corners -->
-            <div class="absolute bottom-[3%] sm:bottom-[4%] w-full flex justify-between items-end px-4 sm:px-6 md:px-12 lg:px-16 2xl:px-24 animate-fade-in delay-800">
-                <div class="text-left">
-                     <p class="body-font text-sm sm:text-base md:text-xl lg:text-2xl 2xl:text-3xl text-[#880E4F] tracking-widest font-medium">
-                        18.01.2026
-                    </p>
-                </div>
-                <div class="text-right">
-                    <p class="body-font text-sm sm:text-base md:text-xl lg:text-2xl 2xl:text-3xl text-[#880E4F] tracking-widest font-medium">
-                        30.11 (Năm Ất Tỵ)
-                    </p>
-                </div>
             </div>
 
         </div>
@@ -326,7 +409,7 @@
         // Function to play music
         function playMusic() {
             if (isPlaying || isAttemptingPlay) return;
-            
+
             isAttemptingPlay = true;
             bgMusic.play().then(() => {
                 isPlaying = true;
@@ -348,7 +431,7 @@
         }
 
         // Try autoplay on load
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             playMusic();
         });
 
@@ -367,7 +450,7 @@
         });
 
         // Click on ring to toggle pause/play
-        musicToggle.addEventListener('click', function(e) {
+        musicToggle.addEventListener('click', function (e) {
             e.stopPropagation();
             if (isPlaying) {
                 manualPause = true; // User explicitly paused - disable auto-hover
@@ -383,31 +466,65 @@
             const container = document.getElementById('petals-container');
             const petal = document.createElement('div');
             petal.classList.add('petal');
-            
+
             // Randomize properties
             const left = Math.random() * 100; // 0-100% width
             const animDuration = 6 + Math.random() * 6; // 6-12s fall time
             const size = 10 + Math.random() * 15; // 10-25px size
             const delay = Math.random() * 5; // 0-5s delay
-            
+
             petal.style.left = `${left}%`;
             petal.style.width = `${size}px`;
             petal.style.height = `${size}px`;
             petal.style.top = `-20px`;
             petal.style.animation = `fall ${animDuration}s linear ${delay}s infinite`;
-            
+
             // Randomize color slightly
-            const colors = ['#F8BBD0', '#F48FB1', '#FFCDD2', '#FCE4EC'];
+            const colors = ['#FFFFFF', '#FFF0F2', '#FFD5E2', '#F8BBD0', '#FCE4EC'];
             petal.style.background = colors[Math.floor(Math.random() * colors.length)];
-            
+
             container.appendChild(petal);
         }
 
         // Create initial batch of petals
         window.addEventListener('load', () => {
-            for(let i = 0; i < 20; i++) {
+            for (let i = 0; i < 20; i++) {
                 createPetal();
             }
+        });
+
+        // Interactive Click Sparkles/Hearts effect
+        document.addEventListener('click', function (e) {
+            // Avoid creating sparkles when clicking the music button itself
+            if (e.target.closest('#musicToggle')) return;
+
+            const heart = document.createElement('div');
+            const symbols = ['❤️', '💖', '✨', '💕', '🌸'];
+            heart.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+            heart.style.position = 'absolute';
+            heart.style.left = `${e.clientX}px`;
+            heart.style.top = `${e.clientY}px`;
+            heart.style.transform = 'translate(-50%, -50%) scale(0.5)';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '999';
+            heart.style.fontSize = `${16 + Math.random() * 16}px`;
+            heart.style.transition = 'all 1s ease-out';
+            heart.style.opacity = '1';
+
+            document.body.appendChild(heart);
+
+            // Force reflow and apply animations
+            requestAnimationFrame(() => {
+                heart.style.top = `${e.clientY - 60 - Math.random() * 40}px`;
+                heart.style.left = `${e.clientX + (Math.random() - 0.5) * 30}px`;
+                heart.style.transform = 'translate(-50%, -50%) scale(1.3) rotate(' + ((Math.random() - 0.5) * 60) + 'deg)';
+                heart.style.opacity = '0';
+            });
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
         });
     </script>
 </body>
