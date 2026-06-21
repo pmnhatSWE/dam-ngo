@@ -493,38 +493,50 @@
             }
         });
 
-        // Interactive Click Sparkles/Hearts effect
-        document.addEventListener('click', function (e) {
-            // Avoid creating sparkles when clicking the music button itself
-            if (e.target.closest('#musicToggle')) return;
+        // Interactive Mousemove Sparkles/Hearts effect (Cursor Trail)
+        let lastX = 0;
+        let lastY = 0;
+        const spawnDistance = 45; // Spawn a heart every 45px of mouse movement
+
+        document.addEventListener('mousemove', function (e) {
+            const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+            if (dist < spawnDistance) return;
+
+            lastX = e.clientX;
+            lastY = e.clientY;
 
             const heart = document.createElement('div');
             const symbols = ['❤️', '💖', '✨', '💕', '🌸'];
             heart.innerText = symbols[Math.floor(Math.random() * symbols.length)];
 
+            // Position absolute relative to page document body (handling scroll)
+            const posX = e.clientX + window.scrollX;
+            const posY = e.clientY + window.scrollY;
+
             heart.style.position = 'absolute';
-            heart.style.left = `${e.clientX}px`;
-            heart.style.top = `${e.clientY}px`;
-            heart.style.transform = 'translate(-50%, -50%) scale(0.5)';
+            heart.style.left = `${posX}px`;
+            heart.style.top = `${posY}px`;
+            heart.style.transform = 'translate(-50%, -50%) scale(0.4)';
             heart.style.pointerEvents = 'none';
             heart.style.zIndex = '999';
-            heart.style.fontSize = `${16 + Math.random() * 16}px`;
-            heart.style.transition = 'all 1s ease-out';
+            heart.style.fontSize = `${12 + Math.random() * 12}px`;
+            // Smooth float up and fade out transition
+            heart.style.transition = 'all 1.2s cubic-bezier(0.1, 0.8, 0.3, 1)';
             heart.style.opacity = '1';
 
             document.body.appendChild(heart);
 
             // Force reflow and apply animations
             requestAnimationFrame(() => {
-                heart.style.top = `${e.clientY - 60 - Math.random() * 40}px`;
-                heart.style.left = `${e.clientX + (Math.random() - 0.5) * 30}px`;
-                heart.style.transform = 'translate(-50%, -50%) scale(1.3) rotate(' + ((Math.random() - 0.5) * 60) + 'deg)';
+                heart.style.top = `${posY - 80 - Math.random() * 40}px`;
+                heart.style.left = `${posX + (Math.random() - 0.5) * 40}px`;
+                heart.style.transform = 'translate(-50%, -50%) scale(1.4) rotate(' + ((Math.random() - 0.5) * 90) + 'deg)';
                 heart.style.opacity = '0';
             });
 
             setTimeout(() => {
                 heart.remove();
-            }, 1000);
+            }, 1200);
         });
     </script>
 </body>
