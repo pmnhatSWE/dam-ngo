@@ -246,6 +246,57 @@
             direction: rtl
         }
     </style>
+    <style>
+        /* TV Mode — fixed px sizes designed for 1920×1080 canvas, bypasses Tailwind breakpoints */
+        body.tv-mode .tv-flex {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 80px !important;
+            width: 100% !important;
+            max-width: 1760px !important;
+            margin: 0 auto !important;
+        }
+        body.tv-mode .tv-photo-wrap {
+            width: 560px !important;
+            height: 747px !important;
+            flex-shrink: 0 !important;
+        }
+        body.tv-mode .tv-title {
+            font-size: 88px !important;
+            margin-bottom: 14px !important;
+            letter-spacing: 0.22em !important;
+        }
+        body.tv-mode .tv-name {
+            font-size: 122px !important;
+            line-height: 1 !important;
+        }
+        body.tv-mode .tv-ring {
+            width: 108px !important;
+            height: 108px !important;
+        }
+        body.tv-mode .tv-date-label {
+            font-size: 26px !important;
+            letter-spacing: 0.2em !important;
+        }
+        body.tv-mode .tv-date-num {
+            font-size: 94px !important;
+            padding-left: 28px !important;
+            padding-right: 28px !important;
+        }
+        body.tv-mode .tv-date-sep {
+            height: 60px !important;
+        }
+        body.tv-mode .tv-date-grid {
+            width: 620px !important;
+        }
+        body.tv-mode .tv-sep-sm { width: 280px !important; }
+        body.tv-mode .tv-sep-lg { width: 380px !important; }
+        body.tv-mode .tv-mt-names { margin-top: 20px !important; }
+        body.tv-mode .tv-mt-date  { margin-top: 28px !important; }
+        body.tv-mode .tv-my-sep   { margin-top: 8px !important; margin-bottom: 8px !important; }
+    </style>
 </head>
 
 <body>
@@ -308,13 +359,12 @@
             </audio>
 
             <!-- Card Flex Container -->
-            <div
-                class="w-full max-w-[1200px] xl:max-w-[1760px] mx-auto flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 lg:space-x-20 xl:space-x-16">
+            <div class="tv-flex w-full max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 lg:space-x-20">
 
                 <!-- Left Column: Bride and Groom Photo (vkck.jpeg) -->
                 <div class="flex-shrink-0 animate-scale z-20">
                     <div
-                        class="w-56 sm:w-64 md:w-80 lg:w-[340px] xl:w-[580px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] md:rounded-[40px] border-[3px] border-[#8A3A4A] p-1.5 md:p-2.5 shadow-xl bg-white bg-opacity-30 backdrop-blur-[2px] overflow-hidden">
+                        class="tv-photo-wrap w-56 sm:w-64 md:w-80 lg:w-[340px] aspect-[3/4] rounded-[24px] sm:rounded-[32px] md:rounded-[40px] border-[3px] border-[#8A3A4A] p-1.5 md:p-2.5 shadow-xl bg-white bg-opacity-30 backdrop-blur-[2px] overflow-hidden">
                         <div
                             class="w-full h-full rounded-[18px] sm:rounded-[24px] md:rounded-[30px] overflow-hidden border border-[#8A3A4A] border-opacity-80">
                             <img src="assets/images/vkck.jpeg" alt="Cô dâu & Chú rể"
@@ -330,12 +380,12 @@
                     <div class="relative z-10 flex flex-col items-center w-full">
                         <!-- Ceremony title -->
                         <h1
-                            class="title-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold tracking-[0.25em] -mr-[0.25em] text-[#720D26] uppercase mb-2 md:mb-3">
+                            class="tv-title title-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.25em] -mr-[0.25em] text-[#720D26] uppercase mb-2 md:mb-3">
                             Lễ Đính Hôn
                         </h1>
 
                         <!-- Names -->
-                        <div class="relative flex flex-col items-center space-y-1 md:space-y-2 w-full mt-4 md:mt-6">
+                        <div class="tv-mt-names relative flex flex-col items-center space-y-1 md:space-y-2 w-full mt-4 md:mt-6">
                             <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
                                 style="transform: translateY(-20px);">
                                 <div class="text-[180px] sm:text-[220px] md:text-[280px] lg:text-[340px] xl:text-[480px] font-bold select-none leading-none"
@@ -345,7 +395,7 @@
                             </div>
 
                             <h2
-                                class="relative z-10 cursive-font text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.8rem] xl:text-[7.5rem] text-[#720D26] leading-none whitespace-nowrap drop-shadow-sm">
+                                class="tv-name relative z-10 cursive-font text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.8rem] text-[#720D26] leading-none whitespace-nowrap drop-shadow-sm">
                                 Phương Trinh
                             </h2>
 
@@ -354,7 +404,7 @@
                                 <button id="musicToggle" class="music-btn cursor-pointer focus:outline-none group"
                                     title="Bấm để bật/tắt nhạc">
                                     <div id="ringIcon"
-                                        class="ring-icon w-12 sm:w-16 md:w-20 xl:w-32 aspect-square animate-spin-slow transition-all duration-300">
+                                        class="tv-ring ring-icon w-12 sm:w-16 md:w-20 aspect-square animate-spin-slow transition-all duration-300">
                                         <img src="assets/images/wedding_rings_sketch.png" alt="wedding rings"
                                             class="w-full h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
                                     </div>
@@ -362,41 +412,37 @@
                             </div>
 
                             <h2
-                                class="relative z-10 cursive-font text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.8rem] xl:text-[7.5rem] text-[#720D26] leading-none whitespace-nowrap drop-shadow-sm">
+                                class="tv-name relative z-10 cursive-font text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.8rem] text-[#720D26] leading-none whitespace-nowrap drop-shadow-sm">
                                 Minh Nhật
                             </h2>
                         </div>
 
                         <!-- Date/Time Container -->
                         <div
-                            class="flex flex-col items-center justify-center font-sans text-[#8A3A4A] mt-6 md:mt-8 w-full font-bold">
-                            <div class="w-36 md:w-44 xl:w-72 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
-                            <div
-                                class="text-xs md:text-sm xl:text-2xl uppercase tracking-[0.25em] -mr-[0.25em] font-extrabold mb-1">
+                            class="tv-mt-date flex flex-col items-center justify-center font-sans text-[#8A3A4A] mt-6 md:mt-8 w-full font-bold">
+                            <div class="tv-sep-sm tv-my-sep w-36 md:w-44 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
+                            <div class="tv-date-label text-xs md:text-sm uppercase tracking-[0.25em] -mr-[0.25em] font-extrabold mb-1">
                                 Tháng 08</div>
-                            <div class="w-48 md:w-60 xl:w-96 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
+                            <div class="tv-sep-lg tv-my-sep w-48 md:w-60 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
 
-                            <div class="items-center justify-center py-1.5 w-[320px] md:w-[400px] xl:w-[660px] mx-auto"
+                            <div class="tv-date-grid items-center justify-center py-1.5 w-[320px] md:w-[400px] mx-auto"
                                 style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);">
-                                <div
-                                    class="uppercase tracking-widest text-[11px] md:text-sm xl:text-2xl font-extrabold text-right pr-4 md:pr-5 xl:pr-8 text-[#8A3A4A]">
+                                <div class="tv-date-label uppercase tracking-widest text-[11px] md:text-sm font-extrabold text-right pr-4 md:pr-5 text-[#8A3A4A]">
                                     Thứ Hai</div>
                                 <div class="flex items-center justify-center">
-                                    <div class="border-l border-[#8A3A4A] opacity-80 h-7 md:h-9 xl:h-16"></div>
-                                    <div class="title-font text-3xl md:text-4xl xl:text-8xl font-black text-[#720D26] leading-none px-4 md:px-5 xl:px-8 text-center"
+                                    <div class="tv-date-sep border-l border-[#8A3A4A] opacity-80 h-7 md:h-9"></div>
+                                    <div class="tv-date-num title-font text-3xl md:text-4xl font-black text-[#720D26] leading-none px-4 md:px-5 text-center"
                                         style="transform: translateY(-5px);">
                                         10</div>
-                                    <div class="border-l border-[#8A3A4A] opacity-80 h-7 md:h-9 xl:h-16"></div>
+                                    <div class="tv-date-sep border-l border-[#8A3A4A] opacity-80 h-7 md:h-9"></div>
                                 </div>
-                                <div
-                                    class="text-[11px] md:text-sm xl:text-2xl tracking-wider font-extrabold text-left pl-4 md:pl-5 xl:pl-8 text-[#8A3A4A] whitespace-nowrap">
+                                <div class="tv-date-label text-[11px] md:text-sm tracking-wider font-extrabold text-left pl-4 md:pl-5 text-[#8A3A4A] whitespace-nowrap">
                                     28/06 (Bính Ngọ)</div>
                             </div>
 
-                            <div class="w-48 md:w-60 xl:w-96 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
-                            <div class="text-xs md:text-sm xl:text-2xl tracking-[0.3em] -mr-[0.3em] font-extrabold mt-1">2026
-                            </div>
-                            <div class="w-36 md:w-44 xl:w-72 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
+                            <div class="tv-sep-lg tv-my-sep w-48 md:w-60 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
+                            <div class="tv-date-label text-xs md:text-sm tracking-[0.3em] -mr-[0.3em] font-extrabold mt-1">2026</div>
+                            <div class="tv-sep-sm tv-my-sep w-36 md:w-44 border-t border-[#8A3A4A] opacity-100 my-1.5"></div>
                         </div>
                     </div>
                 </div>
@@ -562,6 +608,9 @@
             // Activate for landscape screens >= 600px wide (covers all TVs)
             const isLargeScreen = (sw >= 600 || vw >= 600) && vw >= vh;
             if (!isLargeScreen) return;
+
+            // Apply TV mode class — activates fixed px CSS overrides (bypasses Tailwind breakpoints)
+            document.body.classList.add('tv-mode');
 
             const DESIGN_W = 1920, DESIGN_H = 1080;
             const slide = document.querySelector('.ppt-slide');
