@@ -527,7 +527,7 @@
             // Randomize properties
             const left = Math.random() * 100; // 0-100% width
             const animDuration = 6 + Math.random() * 6; // 6-12s fall time
-            const size = 10 + Math.random() * 15; // 10-25px size
+            const size = 20 + Math.random() * 25; // 20-45px size
             const delay = Math.random() * 5; // 0-5s delay
 
             petal.style.left = `${left}%`;
@@ -545,7 +545,7 @@
 
         // Create initial batch of petals
         window.addEventListener('load', () => {
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 40; i++) {
                 createPetal();
             }
         });
